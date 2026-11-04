@@ -1,1 +1,20 @@
 
+article {
+  /* 1. Altera a orientação do flexbox para exibir os elementos lado a lado (em linha) */
+  flex-direction: row;
+
+  /* 2. Ajuste para que cada card ocupe 100% da largura disponível */
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+/* 3. Exemplo de alinhamento individual em um elemento interno do card */
+article img {
+  /* Define um alinhamento diferente para a imagem (ex: alinhada ao topo do card) */
+  align-self: flex-start;
+}
+
+article .btn-leia-mais {
+  /* Alternativa: alinha o botão ao final (base) do card */
+  align-self: flex-end;
+}
