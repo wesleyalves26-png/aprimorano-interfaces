@@ -3,9 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog de Tecnologia</title>
-  <!-- Vinculando o arquivo CSS externo -->
-  <link rel="stylesheet" href="style.css">
+  <title>Blog Tech - Interface Interativa</title>
+  <style>
+    /* VARIABLES DE TEMA */
+    :root {
+      --bg-color: #f4f7f6;
+      --card-bg: #ffffff;
+      --text-color: #2c3e50;
+      --text-muted: #7f8c8d;
+      --primary-color: #3498db;
+      --primary-hover: #2980b9;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --text-color: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 20px;
+    }
+
+    /* HEADER E CONTROLES */
+    header {
+      max-width: 1100px;
+      margin: 0 auto 30px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .controles {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    input[type="search"] {
+      padding: 10px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--card-bg);
+      color: var(--text-color);
+      outline: none;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--primary-color);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* LAYOUT DAS POSTAGENS (EXIBIÇÃO EM LINHA) */
+    .container-posts {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    article.post {
+      display: flex;
+      flex-direction: row; /* Exibição em linha conforme solicitado */
+      flex: 1 1 100%;
+      width: 100%;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .post-imagem {
+      width: 30%;
+      min-width: 200px;
+      object-fit: cover;
+      align-self: stretch; /* Ocupa a altura total do card */
+    }
+
+    .post-corpo {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 70%;
+    }
+
+    .post-cabecalho h2 {
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+    }
+
+    .post-cabecalho small {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .post-conteudo {
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    .post-rodape {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 10px;
+    }
+
+    .artigo-fonte {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .btn-leia-mais {
+      align-self: flex-end; /* Elemento com alinhamento individual diferente */
+    }
+
+    /* RESPONSIVIDADE PARA TELAS MENORES */
+    @media (max-width: 768px) {
+      article.post {
+        flex-direction: column;
+      }
+      .post-imagem, .post-corpo {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -53,7 +205,35 @@
     </article>
   </main>
 
-  <!-- Vinculando o arquivo JavaScript externo -->
-  <script src="script.js"></script>
+  <script>
+    // 1. Alternância de Tema (Dark Mode)
+    const btnTheme = document.getElementById('btnTheme');
+    btnTheme.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.body.removeAttribute('data-theme');
+      } else {
+        document.body.setAttribute('data-theme', 'dark');
+      }
+    });
+
+    // 2. Busca Dinâmica em Tempo Real
+    const campoBusca = document.getElementById('campoBusca');
+    const posts = document.querySelectorAll('.post');
+
+    campoBusca.addEventListener('input', (e) => {
+      const termo = e.target.value.toLowerCase();
+      
+      posts.forEach(post => {
+        const texto = post.textContent.toLowerCase();
+        if (texto.includes(termo)) {
+          post.style.display = 'flex';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
