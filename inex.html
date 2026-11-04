@@ -1,15 +1,59 @@
-<article class="post">
-  <header class="post-cabecalho">
-    <h1>Inteligência Artificial Generativa<br><small>Como a nova era da IA está transformando a criação de conteúdo</small></h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog de Tecnologia</title>
+  <!-- Vinculando o arquivo CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Blog de Tecnologia</h1>
+    <div class="controles">
+      <input type="search" id="campoBusca" placeholder="Buscar artigos...">
+      <button class="btn" id="btnTheme">Alternar Tema</button>
+    </div>
   </header>
 
-  <section class="post-conteudo">
-    <p>A tecnologia avança a passos largos, e uma das vertentes mais fascinantes da atualidade é a capacidade dos sistemas em criar novos conteúdos de forma autônoma. Diferente dos modelos tradicionais que apenas analisam dados existentes, as novas ferramentas conseguem gerar textos, imagens e sons originais a partir de instruções simples.</p>
+  <main class="container-posts" id="listaPosts">
+    <!-- Postagem 1 -->
+    <article class="post">
+      <img src="https://picsum.photos/400/250?random=1" alt="Inteligência Artificial" class="post-imagem" loading="lazy">
+      <div class="post-corpo">
+        <header class="post-cabecalho">
+          <h2>Inteligência Artificial Generativa<br><small>Como a nova era da IA está transformando a criação de conteúdo</small></h2>
+        </header>
+        <section class="post-conteudo">
+          <p>O conceito central por trás dessa revolução é o <strong>Machine Learning</strong>, que permite que os algoritmos aprendam padrões complexos em grandes volumes de dados.</p>
+        </section>
+        <footer class="post-rodape">
+          <p class="artigo-fonte">Fonte: TecMundo / Canaltech</p>
+          <button class="btn btn-leia-mais">Ler Artigo</button>
+        </footer>
+      </div>
+    </article>
 
-    <p>O conceito central por trás dessa revolução é o <strong>Machine Learning</strong>, que permite que os algoritmos aprendam padrões complexos em grandes volumes de dados para tomar decisões e criar respostas cada vez mais precisas e naturais.</p>
-  </section>
+    <!-- Postagem 2 -->
+    <article class="post">
+      <img src="https://picsum.photos/400/250?random=2" alt="Desenvolvimento Web" class="post-imagem" loading="lazy">
+      <div class="post-corpo">
+        <header class="post-cabecalho">
+          <h2>O Futuro do CSS em 2026<br><small>Recursos modernos que simplificaram o layout web</small></h2>
+        </header>
+        <section class="post-conteudo">
+          <p>Com o avanço do <strong>Flexbox</strong> e do CSS Grid, estruturar páginas responsivas tornou-se muito mais simples e dinâmico sem depender de seletores complexos.</p>
+        </section>
+        <footer class="post-rodape">
+          <p class="artigo-fonte">Fonte: W3C / MDN Web Docs</p>
+          <button class="btn btn-leia-mais">Ler Artigo</button>
+        </footer>
+      </div>
+    </article>
+  </main>
 
-  <footer class="post-rodape">
-    <p class="artigo-fonte">Fonte: TecMundo / Canaltech</p>
-  </footer>
-</article>
+  <!-- Vinculando o arquivo JavaScript externo -->
+  <script src="script.js"></script>
+</body>
+</html>
