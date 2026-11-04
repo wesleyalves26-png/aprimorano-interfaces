@@ -1,4 +1,3 @@
-
 article {
   /* 1. Altera a orientação do flexbox para exibir os elementos lado a lado (em linha) */
   flex-direction: row;
